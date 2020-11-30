@@ -1,0 +1,29 @@
+{
+  "name": "client-content",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "dev:generate": "npx prisma generate && npm run dev"
+  },
+  "dependencies": {
+    "@editorjs/editorjs": "^2.19.0",
+    "@prisma/client": "^2.12.1",
+    "@uploadcare/react-widget": "^1.3.2",
+    "formik": "^2.2.5",
+    "next": "10.0.1",
+    "next-auth": "^3.1.0",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "yup": "^0.31.0"
+  },
+  "devDependencies": {
+    "@prisma/cli": "^2.12.1",
+    "knex": "^0.21.12",
+    "knex-migrate": "^1.7.4",
+    "pg": "^8.5.1",
+    "sqlite3": "^5.0.0"
+  }
+}

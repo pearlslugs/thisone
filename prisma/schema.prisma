@@ -1,0 +1,77 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model accounts {
+  id                   Int       @id @default(autoincrement())
+  user_id              Int
+  provider_type        String
+  provider_id          String
+  provider_account_id  String
+  compound_id          String    @unique
+  refresh_token        String?
+  access_token         String?
+  access_token_expires DateTime?
+  created_at           DateTime  @default(now())
+  updated_at           DateTime  @default(now())
+
+  @@index([provider_account_id], name: "accounts_provider_account_id_index")
+  @@index([provider_id], name: "accounts_provider_id_index")
+  @@index([user_id], name: "accounts_user_id_index")
+}
+
+model client_content {
+  id                     Int     @id @default(autoincrement())
+  client_email           String
+  homepage_content       String?
+  homepage_content_draft String?
+  json_test              Json?
+  users                  users   @relation(fields: [client_email], references: [email])
+}
+
+model knex_migrations {
+  id             Int       @id @default(autoincrement())
+  name           String?
+  batch          Int?
+  migration_time DateTime?
+}
+
+model knex_migrations_lock {
+  index     Int  @id @default(autoincrement())
+  is_locked Int?
+}
+
+model sessions {
+  id            Int      @id @default(autoincrement())
+  user_id       Int
+  expires       DateTime
+  session_token String   @unique
+  access_token  String   @unique
+  created_at    DateTime @default(now())
+  updated_at    DateTime @default(now())
+}
+
+model users {
+  id             Int              @id @default(autoincrement())
+  name           String?
+  email          String?          @unique
+  email_verified DateTime?
+  image          String?
+  created_at     DateTime         @default(now())
+  updated_at     DateTime         @default(now())
+  client_content client_content[]
+}
+
+model verification_requests {
+  id         Int      @id @default(autoincrement())
+  identifier String
+  token      String   @unique
+  expires    DateTime
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+}

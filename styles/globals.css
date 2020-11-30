@@ -1,0 +1,78 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+:root {
+  --highlight: rgba(238, 238, 1, 0.3)
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+textarea {
+  width: 90%;
+  height: 30vh;
+}
+.container {
+  display:flex;
+  flex-direction: row;
+  width:100vw;
+  height:auto;
+}
+.left-side {
+  display: flex;
+  flex-direction: column;
+  width:50vw;
+  margin-left: 1rem;
+}
+.right-side {
+  display: flex;
+  flex-direction: column;
+  min-width:50%;
+}
+.highlight-hero-header-one {
+  background-color: var(--highlight);
+  position: absolute;
+  right: 1vw;
+  top: 18vh;
+  width:48vw;
+  height:4.5vh;
+  z-index: 5;
+}
+.highlight-hero-header-two {
+  background-color: var(--highlight);
+  position: absolute;
+  right: 1vw;
+  top: 22.5vh;
+  width:48vw;
+  height:3.5vh;
+  z-index: 5;
+}
+.highlight-hero-header-three {
+  background-color: var(--highlight);
+  position: absolute;
+  right: 18vw;
+  top: 26.0vh;
+  width:14.6vw;
+  height:4.5vh;
+  z-index: 5;
+}
+.highlight-hero-content {
+  background-color: var(--highlight);
+  position: absolute;
+  right: 13vw;
+  top: 31.0vh;
+  width:21vw;
+  height:6.1vh;
+  z-index: 5;
+}
+.hidden {
+  display: none;
+}
